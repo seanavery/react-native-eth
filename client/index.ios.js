@@ -12,6 +12,12 @@ import {
   View
 } from 'react-native';
 
+import {
+  createRouter,
+  NavigationProvider,
+  StackNavigation,
+} from '@exponent/ex-navigation';
+
 export default class client extends Component {
   render() {
     return (

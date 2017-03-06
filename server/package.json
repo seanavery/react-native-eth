@@ -1,0 +1,16 @@
+{
+  "name": "express-solidity",
+  "version": "1.0.0",
+  "description": "Restful interface for contract calls.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "REST",
+    "Solidity"
+  ],
+  "author": "Sean Pollock",
+  "license": "ISC"
+}

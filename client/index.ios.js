@@ -16,10 +16,13 @@ import {
 import React, { Component } from 'react';
 
 import Trade from './src/components/Trade'
+import TradeForm from './src/components/TradeForm'
 
 export const Router = createRouter(() => ({
-  trade: () => Trade
+  trade: () => Trade,
+  tradeform: () => TradeForm,
 }));
+
 export default class client extends Component {
   render() {
     return (

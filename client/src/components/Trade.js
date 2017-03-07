@@ -5,7 +5,11 @@ import {
   Text,
 } from 'react-native';
 
+import { Router } from '../../index.ios.js';
+
 export default class Trade extends Component {
+
+
   render() {
     return (
       <View style={{flex: 1, flexDirection: 'column'}}>

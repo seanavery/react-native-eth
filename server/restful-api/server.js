@@ -6,8 +6,9 @@ const app = express();
 app.post('/submitBuy', (req, res) => {
   Promise.delay()
   .then(() => {
-    console.log('submitting buy somehow....')
-    res.end()
+    // call approve on erc20 token contract
+  }).then(() => {
+    // submit to orderbook
   })
 });
 

@@ -9,11 +9,11 @@ import { Router } from '../../index.ios.js';
 
 export default class Trade extends Component {
   handleSell() {
-
+    this.props.navigator.push(Router.getRoute('tradeform'));
   }
 
   handleBuy() {
-
+    this.props.navigator.push(Router.getRoute('tradeform'));
   }
   render() {
     return (

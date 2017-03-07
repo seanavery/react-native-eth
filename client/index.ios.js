@@ -11,19 +11,24 @@ import {
   createRouter,
   NavigationProvider,
   StackNavigation,
-} from '@expo/ex-navigation';
+} from '@exponent/ex-navigation';
+
+
 
 import React, { Component } from 'react';
 
-import Trade from './src/components/Trade'
-import TradeForm from './src/components/TradeForm'
 
+console.log('Trade here', Trade)
+console.log('TradeForm here', TradeForm)
 export const Router = createRouter(() => ({
   trade: () => Trade,
   tradeform: () => TradeForm,
 }));
 
-export default class client extends Component {
+import Trade from './src/components/Trade'
+import TradeForm from './src/components/TradeForm'
+
+class client extends Component {
   render() {
     return (
       <NavigationProvider router={Router}>
@@ -54,5 +59,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+console.log('Router main', Router)
 
 AppRegistry.registerComponent('client', () => client);

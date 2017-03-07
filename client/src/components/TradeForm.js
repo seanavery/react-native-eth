@@ -5,16 +5,21 @@ import {
   Text,
 } from 'react-native';
 
+import { Router } from '../../index.ios.js';
+
 export default class TradeForm extends Component {
   state = {
     gbp_amount: 0,
     ue_amount: 0,
   }
 
-
   render() {
-    <View>
-      <Slider />
-    </View>
+    return (
+      <View>
+        <Text>
+        afadf
+        </Text>
+      </View>
+    )
   }
 }

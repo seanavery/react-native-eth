@@ -7,6 +7,7 @@ app.post('/submitBuy', (req, res) => {
   Promise.delay()
   .then(() => {
     console.log('submitting buy somehow....')
+    res.end()
   })
 });
 

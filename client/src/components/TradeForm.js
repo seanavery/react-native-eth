@@ -65,7 +65,7 @@ export default class TradeForm extends Component {
               fontSize: 50,
               fontFamily: 'Helvetica'
             }}>
-              {this.state.ue_amount}
+              {this.state.ue_amount} UE
             </Text>
           </View>
         </View>
@@ -77,15 +77,17 @@ export default class TradeForm extends Component {
               fontSize: 50,
               fontFamily: 'Helvetica'
             }}>
-              {this.state.gbp_amount}
+              {this.state.gbp_amount} GBP
             </Text>
           </View>
         </View>
         <View style={{width: '100%', height: '33%', }}>
-          <Slider
-            onValueChange={this.handleSliderChange}
-            onSlidingComplete={this.handleSliderComplete}
-          />
+          <View style={{ paddingLeft: 10, paddingRight: 10}}>
+            <Slider
+              onValueChange={this.handleSliderChange}
+              onSlidingComplete={this.handleSliderComplete}
+            />
+          </View>
           <Button onPress={this.handleOrder}title="submit order" style={{backgroundColor: 'darkgrey', flex: 1, flexDirection: 'row', alignItems: 'center'}}>
           </Button>
         </View>

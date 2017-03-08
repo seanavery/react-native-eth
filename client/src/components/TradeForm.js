@@ -35,12 +35,13 @@ export default class TradeForm extends Component {
   }
 
   handleSliderChange(e) {
-    const temp = e*10;
+    const temp = e*100;
     const conv_val = this.rounding(temp, 2);
-    
+    const gbp_temp = conv_val*.3
+    const gbp_val = this.rounding(gbp_temp, 2)
+
     this.setState({ue_amount: conv_val});
-    this.
-    console.log('this.state.ue_amount', conv_val);
+    this.setState({gbp_amount: gbp_val});
   }
 
   handleSliderComplete() {
@@ -76,7 +77,7 @@ export default class TradeForm extends Component {
               fontSize: 50,
               fontFamily: 'Helvetica'
             }}>
-              3.45 GBP
+              {this.state.gbp_amount}
             </Text>
           </View>
         </View>

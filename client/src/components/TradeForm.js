@@ -4,6 +4,7 @@ import {
   Slider,
   Text,
   Button,
+  TouchableHighlight,
 } from 'react-native';
 
 // import { Router } from '../../index.ios.js';
@@ -82,14 +83,26 @@ export default class TradeForm extends Component {
           </View>
         </View>
         <View style={{width: '100%', height: '33%', }}>
-          <View style={{ paddingLeft: 10, paddingRight: 10}}>
+          <View style={{ paddingLeft: 10, paddingRight: 10, height: '50%'}}>
             <Slider
               onValueChange={this.handleSliderChange}
               onSlidingComplete={this.handleSliderComplete}
             />
           </View>
-          <Button onPress={this.handleOrder}title="submit order" style={{backgroundColor: 'darkgrey', flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-          </Button>
+          <View style={{backgroundColor: 'darkgrey', height:'50%'}}>
+            <TouchableHighlight onPress={this.handleOrder} style={{flex: 1, flexDirection: 'row', alignItems: 'center', width: '100%', height: '100%'}}>
+              <View style={{flex: 1, alignItems: 'center'}}>
+                <Text style={{
+                  fontFamily: 'helvetica',
+                  fontSize: 40,
+                  textAlign: 'center',
+                  color: 'white'
+                }}>
+                  SUBMIT
+                </Text>
+              </View>
+            </TouchableHighlight>
+          </View>
         </View>
       </View>
     )

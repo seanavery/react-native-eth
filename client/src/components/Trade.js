@@ -1,13 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
+import { Router } from '../../index.ios.js';
+
 import {
   View,
   TouchableHighlight,
   Text,
 } from 'react-native';
 
-import { Router } from '../../index.ios.js';
-
 export default class Trade extends Component {
+  static route = {
+    navigationBar: {
+      title: 'Trade',
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    this.handleSell = this.handleSell.bind(this);
+    this.handleBuy = this.handleBuy.bind(this);
+  }
+
   handleSell() {
     this.props.navigator.push(Router.getRoute('tradeform'));
   }
@@ -15,47 +29,36 @@ export default class Trade extends Component {
   handleBuy() {
     this.props.navigator.push(Router.getRoute('tradeform'));
   }
+
   render() {
     return (
       <View style={{flex: 1, flexDirection: 'column'}}>
-        <TouchableHighlight onPress={this.handleBuy}>
-          <View style={{width: '100%', height: '50%', backgroundColor: 'lightgrey'}}>
-            <View style={{
-              flex: 1,
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
+        <View style={{width: '100%', height: '50%', backgroundColor: 'lightgrey'}}>
+          <TouchableHighlight onPress={this.handleSell} style={{flex: 1, flexDirection: 'row', alignItems: 'center', width: '100%', height: '100%'}}>
+            <View style={{flex: 1, alignItems: 'center'}}>
               <Text style={{
-                flex: 1,
-                fontFamily: 'Helvetica',
-                fontWeight: 'bold',
-                fontSize: 50,
-                textAlign: 'center',
-              }}>
-                BUY UE
-              </Text>
-            </View>
-          </View>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={this.handleSell}>
-          <View style={{width: '100%', height: '50%', backgroundColor: 'darkgrey'}}>
-            <View style={{flex: 1,
-              flexDirection: 'row',
-              alignItems: 'center'}}>
-              <Text style={{
-                flex: 1,
-                fontFamily: 'Helvetica',
-                fontWeight: 'bold',
+                fontFamily: 'helvetica',
                 fontSize: 50,
                 textAlign: 'center'
               }}>
-                SELL UE
+              Buy UE
               </Text>
             </View>
-          </View>
-        </TouchableHighlight>
+          </TouchableHighlight>
+        </View>
+        <View style={{width: '100%', height: '50%', backgroundColor: 'darkgrey'}}>
+          <TouchableHighlight onPress={this.handleSell} style={{flex: 1, flexDirection: 'row', alignItems: 'center', width: '100%', height: '100%'}}>
+            <View style={{flex: 1, alignItems: 'center'}}>
+              <Text style={{
+                fontFamily: 'helvetica',
+                fontSize: 50,
+                textAlign: 'center'
+              }}>
+              Sell UE
+              </Text>
+            </View>
+          </TouchableHighlight>
+        </View>
       </View>
     )
   }

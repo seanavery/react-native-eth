@@ -12,9 +12,12 @@ export default class TradeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ue_amount: 0
+      ue_amount: 0,
+      gbp_amount: 0,
+      price: .75
     }
     this.handleOrder = this.handleOrder.bind(this);
+    this.handleSliderChange = this.handleSliderChange.bind(this);
   }
 
   handleOrder() {
@@ -31,6 +34,25 @@ export default class TradeForm extends Component {
     });
   }
 
+  handleSliderChange(e) {
+    const temp = e*10;
+    const conv_val = this.rounding(temp, 2);
+    
+    this.setState({ue_amount: conv_val});
+    this.
+    console.log('this.state.ue_amount', conv_val);
+  }
+
+  handleSliderComplete() {
+
+
+  }
+  rounding(val, places) {
+    const multiplier = Math.pow(10, places);
+    return Math.round(val * multiplier) / multiplier
+  }
+
+
   render() {
     return (
       <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'lightgrey'}}>
@@ -42,7 +64,7 @@ export default class TradeForm extends Component {
               fontSize: 50,
               fontFamily: 'Helvetica'
             }}>
-              20 UE
+              {this.state.ue_amount}
             </Text>
           </View>
         </View>
@@ -59,7 +81,10 @@ export default class TradeForm extends Component {
           </View>
         </View>
         <View style={{width: '100%', height: '33%', }}>
-          <Slider />
+          <Slider
+            onValueChange={this.handleSliderChange}
+            onSlidingComplete={this.handleSliderComplete}
+          />
           <Button onPress={this.handleOrder}title="submit order" style={{backgroundColor: 'darkgrey', flex: 1, flexDirection: 'row', alignItems: 'center'}}>
           </Button>
         </View>

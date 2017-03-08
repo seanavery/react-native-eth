@@ -26,7 +26,7 @@ export default class Landing extends React.Component {
   _toMain = () => {
     console.log('navigator', this.props.navigator)
     console.log('Router', Router)
-    this.props.navigator.push(Router.getRoute('portfolio'));
+    this.props.navigator.push(Router.getRoute('trade'));
   }
 
   render() {
@@ -35,21 +35,6 @@ export default class Landing extends React.Component {
         <TouchableHighlight onPress={this._toMain}>
           <Image  source={require('../../assets/geo_logo.png')} />
         </TouchableHighlight>
-      </View>
-    )
-  }
-}
-
-class Main extends Component {
-  static route = {
-    navigationBar: {
-      title: 'Main',
-    }
-  }
-
-  render() {
-    return (
-      <View>
       </View>
     )
   }

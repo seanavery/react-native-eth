@@ -32,7 +32,6 @@ const app = express();
 
   POST URI:
   /approve/:token_contract_address;
-  /transfer/:token_contract_address;
   /submitSell/:token1_contract_address/:token2_contract_address
 
   GET:
@@ -44,14 +43,16 @@ const app = express();
 ====================================================
 */
 
-// POST
-app.post('/submitSell', (req, res) => {
-  Promise.delay()
-  .then(() => {
-    // call approve on erc20 token contract
-  }).then(() => {
-    // submit to orderbook
-  })
+
+/*
+  POST
+*/
+app.post('/allowance', (req, res) => {
+  console.log('hit /allowance endpoint')
+})
+
+app.post('/sell', (req, res) => {
+  console.log('hit /sell endpoint')
 });
 
 
@@ -63,6 +64,7 @@ app.post('/submitSell', (req, res) => {
   server based exchange agents, Consenergy admins
 
   POST:
+  /transfer/:token_contract_address/:seller_address
   /match/:exchange_contract/
 
 ====================================================

@@ -1,6 +1,6 @@
 import Promise from 'bluebird';
 import request from 'request';
-
+import rp from 'request-promise';
 /*
   unit tests for client facing API
 */
@@ -8,18 +8,22 @@ import request from 'request';
 const sell = {
   method: 'POST',
   uri: 'http://localhost:6000/sell',
-  body: {},
+  body: {
+    'sell': '7'
+  },
   json: true
 }
 
 const approve = {
   method: 'POST',
   uri: 'http://localhost:6000/approve',
-  body: {},
+  body: {
+    'approve': '10'
+  },
   json: true
 }
 
-Proise.delay(0)
+Promise.delay(0)
 .then(() => {
   return rp(sell);
 }).then((body) => {
@@ -27,4 +31,6 @@ Proise.delay(0)
   return rp(approve);
 }).then((body) => {
   console.log('/approve ==>', body);
+}).catch((err) => {
+  console.log(err);
 })

@@ -47,12 +47,14 @@ const app = express();
 /*
   POST
 */
-app.post('/allowance', (req, res) => {
-  console.log('hit /allowance endpoint')
+app.post('/approve', (req, res) => {
+  console.log('hit /approve endpoint');
+  res.end('body');
 })
 
 app.post('/sell', (req, res) => {
-  console.log('hit /sell endpoint')
+  console.log('hit /sell endpoint');
+  res.end('body');
 });
 
 /*
@@ -72,13 +74,13 @@ app.post('/sell', (req, res) => {
   server based exchange agents, Consenergy admins
 
   POST:
-  /transfer/:token_contract_address/:seller_address
+  /transferFrom/:token_contract_address/:seller_address
   /match/:exchange_contract/
 
 =====================================================
 */
 
-app.most('/match', (req, ress) => {
+app.post('/match', (req, ress) => {
   console.log('hit /match endpoint');
 })
 

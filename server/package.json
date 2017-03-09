@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "rest-api": "babel-node restful-api/server.js --presets es2015,stage-0",
-    "sim1": "babel-node restful-api/tests/sim1.js --presets es2015,stage-0"
+    "sim1": "babel-node restful-api/tests/sim1.js --presets es2015,stage-0",
+    "client": "babel-node restful-api/tests/client.js --presets es2015,stage-0"
   },
   "keywords": [
     "Express",

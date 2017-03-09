@@ -55,7 +55,15 @@ app.post('/sell', (req, res) => {
   console.log('hit /sell endpoint')
 });
 
+/*
+  GET
+*/
 
+// orderbook
+
+// orderhistory
+
+// user info
 
 /*
 ====================================================
@@ -67,14 +75,13 @@ app.post('/sell', (req, res) => {
   /transfer/:token_contract_address/:seller_address
   /match/:exchange_contract/
 
-====================================================
+=====================================================
 */
-Promise.delay(0)
-.then(() => {
-  market = new orderbook(options)
-}).then(() => {
-  console.log('market', market)
+
+app.most('/match', (req, ress) => {
+  console.log('hit /match endpoint');
 })
+
 app.listen(6000);
 
 console.log('API listening on port 6000');

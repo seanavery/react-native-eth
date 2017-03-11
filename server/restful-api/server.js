@@ -14,9 +14,9 @@ const client = redis.createClient();
 client.on('error', (err) => {
   console.log('Error from Redis client', err);
 })
-// listen for connection events 
+// listen for connection events
 client.on('connect', () => {
-  console.log('Redis client is connected!')
+  console.log('Redis client is connected!');
 })
 
 /*
@@ -54,17 +54,25 @@ app.use(bodyParser.json());
 */
 app.post('/approve', (req, res) => {
   console.log('req', JSON.stringify(req.body));
+
+  // Promise.delay(0)
+  // .then(())
   res.end(JSON.stringify(req.body));
 })
 
 app.post('/sell', (req, res) => {
   console.log('req', JSON.stringify(req.body));
+
+  client.set('sell 1', JSON.stringify(req.body), () => {
+    console.log('sucessfully stored json');
+  })
   res.end(JSON.stringify(req.body));
 });
 
-app.post('delete', (req, res) => {
+app.post('/delete', (req, res) => {
   res.end(JSON.stringify(req.body));
 })
+
 
 /*
   GET

@@ -1,7 +1,8 @@
 import express from 'express';
-import Promise from 'bluebird';
 import redis from 'redis';
 
+import Promise from 'bluebird';
+import bodyParser from 'body-parser'
 /*
   REDIS CLIENT
   listens on port 6379 by default
@@ -20,7 +21,10 @@ client.on('error', (err) => {
   GET, POST, PUT, DELETE
 */
 const app = express();
-
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
+app.use(bodyParser.json());
 
 /*
 ====================================================
@@ -32,7 +36,7 @@ const app = express();
 
   POST URI:
   /approve/:token_contract_address;
-  /submitSell/:token1_contract_address/:token2_contract_address
+  /sell/token1_contract_address/:token2_contract_address
 
   GET:
 
@@ -48,14 +52,18 @@ const app = express();
   POST
 */
 app.post('/approve', (req, res) => {
-  console.log('hit /approve endpoint');
-  res.end('body');
+  console.log('req', JSON.stringify(req.body));
+  res.end(JSON.stringify(req.body));
 })
 
 app.post('/sell', (req, res) => {
-  console.log('hit /sell endpoint');
-  res.end('body');
+  console.log('req', JSON.stringify(req.body));
+  res.end(JSON.stringify(req.body));
 });
+
+app.post('delete', (req, res) => {
+  res.end(JSON.stringify(req.body));
+})
 
 /*
   GET

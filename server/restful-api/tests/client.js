@@ -9,7 +9,7 @@ const sell = {
   method: 'POST',
   uri: 'http://localhost:6000/sell',
   body: {
-    'sell': '7'
+    'approve': '10'
   },
   json: true
 }
@@ -17,9 +17,7 @@ const sell = {
 const approve = {
   method: 'POST',
   uri: 'http://localhost:6000/approve',
-  body: {
-    'approve': '10'
-  },
+  body: {"foo": "bar"},
   json: true
 }
 

@@ -14,6 +14,10 @@ const client = redis.createClient();
 client.on('error', (err) => {
   console.log('Error from Redis client', err);
 })
+// listen for connection events 
+client.on('connect', () => {
+  console.log('Redis client is connected!')
+})
 
 /*
   EXPRESS SERVER
@@ -21,9 +25,6 @@ client.on('error', (err) => {
   GET, POST, PUT, DELETE
 */
 const app = express();
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
 app.use(bodyParser.json());
 
 /*

@@ -79,7 +79,13 @@ app.post('/delete', (req, res) => {
 */
 
 // orderbook
-
+app.get('/sell', (req, res) => {
+  client.get('sell 1', (err, reply) => {
+    console.log('reply', reply);
+    res.end(reply);
+    if(err) {console.log(err);}
+  })
+})
 // orderhistory
 
 // user info

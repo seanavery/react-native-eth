@@ -21,6 +21,11 @@ const approve = {
   json: true
 }
 
+const getSell = {
+  method: 'GET',
+  uri: 'http://localhost:6000/sell',
+}
+
 Promise.delay(0)
 .then(() => {
   return rp(sell);
@@ -29,6 +34,9 @@ Promise.delay(0)
   return rp(approve);
 }).then((body) => {
   console.log('/approve ==>', body);
+  return rp(getSell);
+}).then((reply) => {
+  console.log(reply);
 }).catch((err) => {
   console.log(err);
 })

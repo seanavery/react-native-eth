@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "rest-api": "babel-node restful-api/server.js --presets es2015,stage-0",
+    "api": "babel-node rest-api/server.js --presets es2015,stage-0",
     "sim1": "babel-node restful-api/tests/sim1.js --presets es2015,stage-0",
     "client": "babel-node restful-api/tests/client.js --presets es2015,stage-0"
   },
@@ -24,6 +25,7 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "mysql": "^2.13.0",
     "redis": "^2.6.5",
     "request": "^2.80.0",
     "request-promise": "^4.1.1",

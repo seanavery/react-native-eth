@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Landing from './src/components/Landing';
 import Trade from './src/components/Trade';
 import TradeForm from './src/components/TradeForm';
+import Drawer from './src/components/Drawer';
 
 console.log('Landing', Landing);
 
@@ -63,7 +64,7 @@ class App extends React.Component {
           }}
           initialRoute={Router.getRoute('landing')}
         />
-
+        <Drawer />
       </NavigationProvider>
     );
   }

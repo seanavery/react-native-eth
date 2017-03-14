@@ -16,10 +16,7 @@ export default class Drawer extends Component {
     return (
       <DrawerNavigation>
         <DrawerNavigationItem>
-
-
         </DrawerNavigationItem>
-
       </DrawerNavigation>
     )
   }

@@ -4,8 +4,7 @@ import Landing from './src/components/Landing';
 import Trade from './src/components/Trade';
 import TradeForm from './src/components/TradeForm';
 import Drawer from './src/components/Drawer';
-
-console.log('Landing', Landing);
+import Markets from './src/components/Markets';
 
 import {
   AppRegistry,
@@ -29,7 +28,6 @@ import {
   StackNavigation,
 } from '@exponent/ex-navigation';
 
-
 /**
   * This is where we map route names to route components. Any React
   * component can be a route, it only needs to have a static `route`
@@ -39,10 +37,8 @@ export const Router = createRouter(() => ({
   landing: () => Landing,
   trade: () => Trade,
   tradeform: () => TradeForm,
+  markets: () => Markets
 }));
-
-console.log('Router', Router);
-console.log('Landing', Landing)
 
 class App extends React.Component {
   render() {
@@ -62,9 +58,9 @@ class App extends React.Component {
               tintColor: '#fff',
             }
           }}
-          initialRoute={Router.getRoute('landing')}
+          initialRoute={Router.getRoute('markets')}
         />
-        <Drawer />
+
       </NavigationProvider>
     );
   }

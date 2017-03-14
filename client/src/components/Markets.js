@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import {
-  View
+  View,
+  ScrollView,
+  Image,
 } from 'react-native';
 
 export default class Markets extends Component {
@@ -12,9 +14,14 @@ export default class Markets extends Component {
 
   render() {
     return (
-      <View>
+      <ScrollView>
+        <Image source={require('../../assets/geo_logo.png')} />
 
-      </View>
+        <Image source={require('../../assets/geo_logo.png')} />
+
+        <Image source={require('../../assets/geo_logo.png')} />
+
+      </ScrollView>
     )
   }
 }

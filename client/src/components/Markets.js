@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Market from './Market';
 
 import {
   View,
@@ -15,11 +16,11 @@ export default class Markets extends Component {
   render() {
     return (
       <ScrollView>
-        <Image source={require('../../assets/geo_logo.png')} />
+        <Market />
 
-        <Image source={require('../../assets/geo_logo.png')} />
+        <Market />
 
-        <Image source={require('../../assets/geo_logo.png')} />
+        <Market />
 
       </ScrollView>
     )

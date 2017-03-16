@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
 import { Viw, Text } from 'react-native';
 import GestureRecognizer, { swipeDirection } from 'react-native-swipe-gestures';
+import { Router } from '../Router';
+import { Drawer } from './index';
 
-export default class Gesture extens Component {
+export default class Gesture extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       backgroundColor: 'white',
       gestureName: ''
     };
   }
+
+  onSwipe(gestureName, gestureState) {
+    console.log('swipe recognized', gestureName);
+    switch (gestureName) {
+      case 'SWIPE_DOWN':
+        this.setState({gestureName: 'Down'});
+        break;
+      case 'SWIPE_UP':
+        // this.setState({gestureName: 'Up'});
+        this.props.navigator.push(Router.getRoute('drawer'));
+        break;
+      default:
+        break;
+    }
+
+  }
   render() {
     const config = {
-      velocityThreshold: 0.3,
+      velocityThreshold: 0.1,
       directionalOffsetThreshold: 80
     };
     return (
@@ -25,5 +44,6 @@ export default class Gesture extens Component {
       >
         <Text>Recieved gesture: {this.state.gestureName}</Text>
       </GestureRecognizer>
+    );
   }
 }

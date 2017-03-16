@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Router } from '../../index.ios.js';
+import { Router } from '../Router';
 
 import {
   View,
@@ -28,6 +28,7 @@ export default class Landing extends React.Component {
   }
 
   render() {
+    console.log('rendering landing')
     return (
       <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
         <TouchableHighlight onPress={this._toMain}>

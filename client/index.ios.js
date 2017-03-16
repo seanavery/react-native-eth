@@ -58,7 +58,7 @@ class App extends React.Component {
               tintColor: '#fff',
             }
           }}
-          initialRoute={Router.getRoute('markets')}
+          initialRoute={Router.getRoute('landing')}
         />
 
       </NavigationProvider>

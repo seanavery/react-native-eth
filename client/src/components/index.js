@@ -5,11 +5,7 @@ import TradeForm from './TradeForm';
 import Market from './markets/Market';
 import Markets from './markets/Markets';
 
-console.log('Landing(index)', Landing)
 export {
   Landing,
-  Trade,
-  TradeForm,
-  Market,
   Markets,
 }

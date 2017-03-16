@@ -1,9 +1,13 @@
 import { createRouter } from '@exponent/ex-navigation';
 
-import { Landing } from './components/index';
-import { Markets } from './components/index';
+import {
+  Landing,
+  Markets,
+  Market
+} from './components/index';
 
 export const Router = createRouter(() => ({
   landing: () => Landing,
-  markets: () => Markets
+  markets: () => Markets,
+  markert: () => Market,
 }));

@@ -8,4 +8,5 @@ import Markets from './markets/Markets';
 export {
   Landing,
   Markets,
+  Market,
 }

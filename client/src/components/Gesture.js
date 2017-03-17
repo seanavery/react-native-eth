@@ -4,7 +4,7 @@ import GestureRecognizer, { swipeDirection } from 'react-native-swipe-gestures';
 import { Router } from '../Router';
 import { Drawer } from './index';
 
-export default class Gesture extends Component {
+export default class GestureComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +31,6 @@ export default class Gesture extends Component {
       default:
         break;
     }
-
   }
   render() {
     const config = {

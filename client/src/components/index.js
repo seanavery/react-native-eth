@@ -9,10 +9,13 @@ import Markets from './markets/Markets';
 
 import Gesture from './Gesture';
 
+import Map from './sGateway/Map';
+
 export {
   Landing,
   Drawer,
   Markets,
   Market,
-  Gesture
+  Gesture,
+  Map
 }

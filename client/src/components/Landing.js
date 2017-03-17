@@ -7,16 +7,18 @@ import {
   Image,
 } from 'react-native';
 
+import GestureRecognizer, { swipeDirection } from 'react-native-swipe-gestures';
+
 export default class Landing extends React.Component {
-  /**
-    * This is where we can define any route configuration for this
-    * screen. For example, in addition to the navigationBar title we
-    * could add backgroundColor.
-    */
+  
   static route = {
     navigationBar: {
       title: 'Landing',
     }
+  }
+
+  onSwipeUp() {
+
   }
 
   constructor(props) {

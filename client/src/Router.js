@@ -3,11 +3,15 @@ import { createRouter } from '@exponent/ex-navigation';
 import {
   Landing,
   Markets,
-  Market
+  Market,
+  Gesture,
+  Drawer
 } from './components/index';
 
 export const Router = createRouter(() => ({
   landing: () => Landing,
   markets: () => Markets,
-  markert: () => Market,
+  market: () => Market,
+  gesture: () => Gesture,
+  drawer: () => Drawer,
 }));

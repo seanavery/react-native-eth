@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router } from './src/Router';
 // import Drawer from './src/components/Drawer';
-import Landing from './src/components/index';
+// import Landing from './src/components/index';
 // import Trade from './src/components/Trade';
 // import TradeForm from './src/components/TradeForm';
 // import Drawer from './src/components/Drawer';
@@ -59,7 +59,7 @@ class App extends React.Component {
               tintColor: '#fff',
             }
           }}
-          initialRoute={Router.getRoute('landing')}
+          initialRoute={Router.getRoute('gesture')}
         />
 
       </NavigationProvider>

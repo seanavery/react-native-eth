@@ -20,8 +20,13 @@ export default class Gesture extends Component {
         this.setState({gestureName: 'Down'});
         break;
       case 'SWIPE_UP':
-        // this.setState({gestureName: 'Up'});
-        this.props.navigator.push(Router.getRoute('drawer'));
+        this.setState({gestureName: 'Up'});
+        break;
+      case 'SWIPE_LEFT':
+        this.setState({gestureName: 'Left'});
+        break;
+      case 'SWIPE_RIGHT':
+        this.setState({gestureName: 'Right'});
         break;
       default:
         break;

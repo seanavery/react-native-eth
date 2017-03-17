@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Router } from '../../index.ios.js';
+import { Router } from '../Router';
 
 import {
   View,
@@ -24,12 +24,11 @@ export default class Landing extends React.Component {
   }
 
   _toMain = () => {
-    console.log('navigator', this.props.navigator)
-    console.log('Router', Router)
-    this.props.navigator.push(Router.getRoute('trade'));
+    this.props.navigator.push(Router.getRoute('markets'));
   }
 
   render() {
+    console.log('rendering landing')
     return (
       <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
         <TouchableHighlight onPress={this._toMain}>

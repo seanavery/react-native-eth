@@ -1,10 +1,12 @@
+import Landing from './Landing';
 import Trade from './Trade';
 import TradeForm from './TradeForm';
 
-console.log('Trade', Trade);
-console.log('TradeForm', TradeForm)
+import Market from './markets/Market';
+import Markets from './markets/Markets';
 
 export {
-  Trade,
-  TradeForm,
+  Landing,
+  Markets,
+  Market,
 }

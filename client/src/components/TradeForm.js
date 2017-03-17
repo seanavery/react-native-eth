@@ -45,11 +45,7 @@ export default class TradeForm extends Component {
     this.setState({ue_amount: conv_val});
     this.setState({gbp_amount: gbp_val});
   }
-
-  handleSliderComplete() {
-
-
-  }
+  
   rounding(val, places) {
     const multiplier = Math.pow(10, places);
     return Math.round(val * multiplier) / multiplier

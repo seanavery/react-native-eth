@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Router } from './src/Router';
 // import Drawer from './src/components/Drawer';
-import Landing from './src/components/Landing';
-import Trade from './src/components/Trade';
-import TradeForm from './src/components/TradeForm';
-import Drawer from './src/components/Drawer';
-import Markets from './src/components/Markets';
+import Landing from './src/components/index';
+// import Trade from './src/components/Trade';
+// import TradeForm from './src/components/TradeForm';
+// import Drawer from './src/components/Drawer';
+// import Markets from './src/components/Markets';
 
 import {
   AppRegistry,
@@ -33,12 +34,12 @@ import {
   * component can be a route, it only needs to have a static `route`
   * property defined on it, as in HomeScreen below
   */
-export const Router = createRouter(() => ({
-  landing: () => Landing,
-  trade: () => Trade,
-  tradeform: () => TradeForm,
-  markets: () => Markets
-}));
+// export const Router = createRouter(() => ({
+//   landing: () => Landing,
+//   trade: () => Trade,
+//   tradeform: () => TradeForm,
+//   markets: () => Markets
+// }));
 
 class App extends React.Component {
   render() {
@@ -58,7 +59,7 @@ class App extends React.Component {
               tintColor: '#fff',
             }
           }}
-          initialRoute={Router.getRoute('markets')}
+          initialRoute={Router.getRoute('landing')}
         />
 
       </NavigationProvider>

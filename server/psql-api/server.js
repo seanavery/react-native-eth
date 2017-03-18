@@ -1,5 +1,5 @@
 import express from 'express';
-
+const app = express()
 const router = express.Router();
 
 router.get('/sell', (req, res) => {
@@ -7,6 +7,9 @@ router.get('/sell', (req, res) => {
   res.send(req)
 });
 
-router.listen(6000, () => {
+// apply the routes to our application
+app.use('/', router);
+
+app.listen(6000, () => {
   console.log('express server listening on port 6001');
-})
+});

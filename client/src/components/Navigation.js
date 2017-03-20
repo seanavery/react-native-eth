@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Router } from '../Router';
+import { connect } from 'react-redux';
+import store from '../store';
 import {
   NavigationProvider,
   StackNavigation
 } from '@exponent/ex-navigation';
 
-export default class Navigation extends Component {
+class NavigationComponent extends Component {
+
+
   render() {
+    const drawer = store.getState().navigation.drawer;
+    console.log('drawer(navigation)', drawer);
     return (
       <NavigationProvider router={Router}>
         <StackNavigation
@@ -18,7 +24,19 @@ export default class Navigation extends Component {
           }}
           initialRoute={Router.getRoute('gesture')}
         />
+
+
       </NavigationProvider>
     )
   }
 }
+
+const mapStoreToProps = (store) => {
+  let mappedProps = new Object();
+  mappedProps.navigation = store.navigation;
+  return mappedProps;
+}
+
+const Navigation =  connect(mapStoreToProps)(NavigationComponent);
+
+export default Navigation;

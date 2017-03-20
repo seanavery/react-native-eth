@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router } from '../Router';
 import { connect } from 'react-redux';
 import store from '../store';
+import { Drawer } from './index';
 import {
   NavigationProvider,
   StackNavigation
@@ -25,6 +26,7 @@ class NavigationComponent extends Component {
           initialRoute={Router.getRoute('gesture')}
         />
 
+      {drawer ? <Drawer /> : null}
 
       </NavigationProvider>
     )

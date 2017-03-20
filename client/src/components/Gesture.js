@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Viw, Text } from 'react-native';
 import GestureRecognizer, { swipeDirection } from 'react-native-swipe-gestures';
-import { Router } from '../Router';
+import { connect } from 'react-redux';
+// import { Router } from '../Router';
 import { Drawer } from './index';
 
-export default class GestureComponent extends Component {
+class GestureComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,6 +21,9 @@ export default class GestureComponent extends Component {
         this.setState({gestureName: 'Down'});
         break;
       case 'SWIPE_UP':
+        const { dispatch } = this.props;
+        console.log('dispatch', dispatch);
+        dispatch({type: 'TOGGLE_DRAWER'});
         this.setState({gestureName: 'Up'});
         break;
       case 'SWIPE_LEFT':
@@ -51,3 +55,13 @@ export default class GestureComponent extends Component {
     );
   }
 }
+
+const mapStoreToProps = (store) => {
+  let mappedProps = new Object();
+  mappedProps.navigation = store.navigation;
+  return mappedProps;
+}
+
+const Gesture = connect(mapStoreToProps)(GestureComponent);
+
+export default Gesture;

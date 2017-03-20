@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Router } from '../../index.ios.js';
+import { Router } from '../../../index.ios.js';
 
 import {
   View,
@@ -7,6 +7,7 @@ import {
   Text,
   Image,
 } from 'react-native';
+
 import { Button } from 'react-native-elements';
 
 export default class Trade extends Component {
@@ -37,7 +38,7 @@ export default class Trade extends Component {
       <View style={{flex: 1, flexDirection: 'column'}}>
         <View style={{width: '100%', height: '90%', backgroundColor: 'white'}}>
           <Text style={{fontSize: 24}}> Sell yo shit </Text>
-          <Image  source={require('../../assets/doge_yawn.jpg')} />
+          <Image  source={require('../../../assets/doge_yawn.jpg')} />
         </View>
         <View style={{flex: 1, width: '100%', height: '10%', flexDirection: 'row' }}>
           <View style={{flex:1 , width:'50%', height:'100%'}}>

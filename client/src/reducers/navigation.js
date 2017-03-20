@@ -10,5 +10,7 @@ export default function navigation(state = INITIAL_STATE, action) {
         ...state,
         drawer: !state.drawer
       }
+    default:
+      return INITIAL_STATE;
   }
 }

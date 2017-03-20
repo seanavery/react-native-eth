@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Router } from './src/Router';
+import { Provider } from 'react-redux';
+import store from './src/store';
 // import Drawer from './src/components/Drawer';
 // import Landing from './src/components/index';
 // import Trade from './src/components/Trade';
@@ -34,12 +36,6 @@ import {
   * component can be a route, it only needs to have a static `route`
   * property defined on it, as in HomeScreen below
   */
-// export const Router = createRouter(() => ({
-//   landing: () => Landing,
-//   trade: () => Trade,
-//   tradeform: () => TradeForm,
-//   markets: () => Markets
-// }));
 
 class App extends React.Component {
   render() {
@@ -51,18 +47,19 @@ class App extends React.Component {
       * StackNavigation represents a single stack of screen
     */
     return (
-      <NavigationProvider router={Router}>
-        <StackNavigation
-          defaultRouteConfig={{
-            navigationBar: {
-              backgroundColor: '#a8a8a8',
-              tintColor: '#fff',
-            }
-          }}
-          initialRoute={Router.getRoute('gesture')}
-        />
-
-      </NavigationProvider>
+      <Provider store={store}>
+        <NavigationProvider router={Router}>
+          <StackNavigation
+            defaultRouteConfig={{
+              navigationBar: {
+                backgroundColor: '#a8a8a8',
+                tintColor: '#fff',
+              }
+            }}
+            initialRoute={Router.getRoute('gesture')}
+          />
+        </NavigationProvider>
+      </Provider>
     );
   }
 }

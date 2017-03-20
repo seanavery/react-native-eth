@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Navigation from './src/components/Navigation';
 import { Router } from './src/Router';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import store from './src/store';
 // import Drawer from './src/components/Drawer';
 // import Landing from './src/components/index';
@@ -25,11 +26,6 @@ import {
  */
 // import Exponent from 'exponent';
 
-import {
-  createRouter,
-  NavigationProvider,
-  StackNavigation,
-} from '@exponent/ex-navigation';
 
 /**
   * This is where we map route names to route components. Any React
@@ -37,8 +33,9 @@ import {
   * property defined on it, as in HomeScreen below
   */
 
-class App extends React.Component {
+class App extends Component {
   render() {
+    console.log('Navigation(index.ios)', Navigation);
     /**
       * NavigationProvider is only needed at the top level of the app,
       * similar to react-redux's Provider component. It passes down
@@ -46,22 +43,21 @@ class App extends React.Component {
       *
       * StackNavigation represents a single stack of screen
     */
+
     return (
       <Provider store={store}>
-        <NavigationProvider router={Router}>
-          <StackNavigation
-            defaultRouteConfig={{
-              navigationBar: {
-                backgroundColor: '#a8a8a8',
-                tintColor: '#fff',
-              }
-            }}
-            initialRoute={Router.getRoute('gesture')}
-          />
-        </NavigationProvider>
+        <Navigation />
       </Provider>
     );
   }
 }
+
+// const mapStoreToProps = (store) => {
+//   let mappedProps = new Object();
+//   mappedProps.navigation = store.navigation;
+//   return mappedProps;
+// }
+//
+// const App = connect(mapStoreToProps)(AppComponent);
 
 AppRegistry.registerComponent('client', () => App);

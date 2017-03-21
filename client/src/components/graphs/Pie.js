@@ -5,7 +5,10 @@ import {
   ART,
 } from 'react-native';
 
-// import * as d3 from 'd3';
+const { Surface } = ART;
+import * as d3 from 'd3';
+
+console.log('d3', d3)
 
 var data = [
     {"number":  8, "name": 'Fun activities'},
@@ -21,10 +24,14 @@ export default class Pie extends Component {
     super(props);
   }
 
+  componentDidMount() {
+
+  }
   render() {
     return (
-      <View>
-        <Text>Pie Chart</Text>
+      <View width={300} height={300}>
+        <Surface width={300} height={300}>
+        </Surface>
       </View>
     );
   }

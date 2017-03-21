@@ -8,7 +8,7 @@
     "rest-api": "babel-node restful-api/server.js --presets es2015,stage-0",
     "api": "babel-node psql-api/server.js --presets es2015,stage-0",
     "sim1": "babel-node restful-api/tests/sim1.js --presets es2015,stage-0",
-    "client": "babel-node restful-api/tests/client.js --presets es2015,stage-0",
+    "sell": "babel-node psql-api/tests/sell.js --presets es2015,stage-0",
     "submit-orders": "babel-node rest-api/tests/submitOrders.js --presets est2015,stage-0"
   },
   "keywords": [
@@ -27,6 +27,7 @@
     "body-parser": "^1.17.1",
     "dateformat": "^2.0.0",
     "express": "^4.15.2",
+    "gaussian": "^1.1.0",
     "mysql": "^2.13.0",
     "redis": "^2.6.5",
     "request": "^2.80.0",

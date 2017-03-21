@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Viw, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import GestureRecognizer, { swipeDirection } from 'react-native-swipe-gestures';
 import { connect } from 'react-redux';
 // import { Router } from '../Router';

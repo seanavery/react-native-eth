@@ -6,7 +6,6 @@ import {
   Market,
   Gesture,
   Drawer,
-  Map
 } from './components/index';
 
 export const Router = createRouter(() => ({
@@ -15,5 +14,4 @@ export const Router = createRouter(() => ({
   market: () => Market,
   gesture: () => Gesture,
   drawer: () => Drawer,
-  mapview: () => Map
 }));

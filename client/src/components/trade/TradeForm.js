@@ -4,7 +4,7 @@ import {
   Slider,
   Text,
   TouchableHighlight,
-} from 'react-native';
+  } from 'react-native';
 import Chart from 'react-native-chart';
 import { Button } from 'react-native-elements';
 
@@ -45,7 +45,7 @@ export default class TradeForm extends Component {
     this.setState({ue_amount: conv_val});
     this.setState({gbp_amount: gbp_val});
   }
-  
+
   rounding(val, places) {
     const multiplier = Math.pow(10, places);
     return Math.round(val * multiplier) / multiplier

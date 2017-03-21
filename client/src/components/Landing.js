@@ -10,15 +10,10 @@ import {
 import GestureRecognizer, { swipeDirection } from 'react-native-swipe-gestures';
 
 export default class Landing extends React.Component {
-  
   static route = {
     navigationBar: {
       title: 'Landing',
     }
-  }
-
-  onSwipeUp() {
-
   }
 
   constructor(props) {

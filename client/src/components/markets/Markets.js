@@ -14,7 +14,6 @@ import {
 
 
 export default class Markets extends React.Component {
-
   static route = {
     navigationBar: {
       title: 'Markets',

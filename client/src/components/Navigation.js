@@ -8,7 +8,7 @@ import {
   StackNavigation
 } from '@exponent/ex-navigation';
 
-class NavigationComponent extends Component {
+class NavigationComponent extends React.Component {
 
 
   render() {
@@ -23,7 +23,7 @@ class NavigationComponent extends Component {
               tintColor: '#fff',
             }
           }}
-          initialRoute={Router.getRoute('gesture')}
+          initialRoute={Router.getRoute('market')}
         />
 
       {drawer ? <Drawer /> : null}

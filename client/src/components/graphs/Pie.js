@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text
+  Text,
+  ART,
 } from 'react-native';
 
 // import * as d3 from 'd3';

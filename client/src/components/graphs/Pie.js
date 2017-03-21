@@ -23,8 +23,8 @@ export default class Pie extends Component {
 
   render() {
     return (
-      <View width=300 height=300>
-        <Text>Pie Chart </Text>
+      <View>
+        <Text>Pie Chart</Text>
       </View>
     );
   }

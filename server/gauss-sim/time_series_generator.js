@@ -10,7 +10,6 @@ function simulationLoop() {
   return Promise.delay(5000)
   .then(() => {
     console.log('trading event');
-    return abc();
   }).then(() => {
     return simulationLoop();
   }).catch((error) => {

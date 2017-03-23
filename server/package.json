@@ -4,12 +4,12 @@
   "description": "Restful interface for contract calls.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "rest-api": "babel-node restful-api/server.js --presets es2015,stage-0",
     "api": "babel-node psql-api/server.js --presets es2015,stage-0",
     "sim1": "babel-node restful-api/tests/sim1.js --presets es2015,stage-0",
     "sell": "babel-node psql-api/tests/sell.js --presets es2015,stage-0",
-    "submit-orders": "babel-node rest-api/tests/submitOrders.js --presets est2015,stage-0"
+    "submit-orders": "babel-node rest-api/tests/submitOrders.js --presets es2015,stage-0",
+    "gauss-sim": "babel-node gauss-sim/time_series_generator.js --presets es2015,stage-0"
   },
   "keywords": [
     "Express",

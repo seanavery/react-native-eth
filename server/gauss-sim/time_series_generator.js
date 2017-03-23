@@ -1,32 +1,79 @@
 import Promise from 'bluebird';
 
 // globals
-let starting_price = .5;
-let starting_variance = .2
+let volume;
+let price;
+let variance;
 
-// recursive simulation process
 
+/*
+///////////////////////////////////////////////////////////
+SIMULATION LOOP
+///////////////////////////////////////////////////////////
+*/
 function simulationLoop() {
   return Promise.delay(5000)
   .then(() => {
-    console.log('trading event');
+    return calculateMarketParams();
   }).then(() => {
-    return simulationLoop();
+    console.log('hadf')
   }).catch((error) => {
     console.log('error', error);
     Promise.delay(5000)
     .then(() => {
       return simulationLoop();
+    });
+  });
+}
+
+/*
+///////////////////////////////////////////////////////////
+CALCULATE BATCH PARAMETERS
+///////////////////////////////////////////////////////////
+*/
+export default function calculateMarketParams() {
+  return new Promise((resolve, reject) => {
+    Promise.resolve(marketPrice())
+    .then(() => {
+      return marketVariance();
+    }).then(() => {
+      return batchVolume;
+    }).then(() => {
+      resolve(true);
+    }).catch((error) => {
+      reject(error);
     })
   })
 }
 
-// calculate normal random
+export function marketPrice() {
+  console.log('hit marketPrice');
+}
+
+export function marketVariance() {
+  console.log('hit marketVariance');
+}
+
+export function batchVolume() {
+  console.log('hit batchVolume');
+}
+
+
+/*
+///////////////////////////////////////////////////////////
+MATH UTILIITES
+///////////////////////////////////////////////////////////
+*/
 export function bellRandom(mean) {
   conosole.log('calculating normal random');
   return mean;
 
   return new Promise(resolve, rejct)
+}
+
+export function flatRandom(mean) {
+  console.log('calculating flat random');
+  return mean;
 }
 
 simulationLoop();

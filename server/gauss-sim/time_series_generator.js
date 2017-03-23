@@ -16,7 +16,7 @@ function simulationLoop() {
   .then(() => {
     return calculateMarketParams();
   }).then(() => {
-    console.log('hadf')
+    return shotgun();
   }).catch((error) => {
     console.log('error', error);
     Promise.delay(5000)
@@ -58,6 +58,21 @@ export function batchVolume() {
   console.log('hit batchVolume');
 }
 
+/*
+///////////////////////////////////////////////////////////
+SHOTGUN: TRADING BATCH
+///////////////////////////////////////////////////////////
+*/
+export function shotgun() {
+  for(let i = 0; i < volume; i++) {
+    tradingEvent();
+  }
+  return true;
+}
+
+export function tradingEvent(i) {
+  console.log(`Trade ${i}`)
+}
 
 /*
 ///////////////////////////////////////////////////////////

@@ -1,10 +1,11 @@
 import Promise from 'bluebird';
+import gaussian from 'gaussian';
 
 // globals
-let volume;
-let price;
-let variance;
-
+let volume = 5;
+let price = 1;
+let price_variance = .2;
+let volume_variance = 3;
 
 /*
 ///////////////////////////////////////////////////////////
@@ -17,6 +18,8 @@ function simulationLoop() {
     return calculateMarketParams();
   }).then(() => {
     return shotgun();
+  }).then(() => {
+
   }).catch((error) => {
     console.log('error', error);
     Promise.delay(5000)
@@ -31,13 +34,14 @@ function simulationLoop() {
 CALCULATE BATCH PARAMETERS
 ///////////////////////////////////////////////////////////
 */
+
 export default function calculateMarketParams() {
   return new Promise((resolve, reject) => {
     Promise.resolve(marketPrice())
     .then(() => {
-      return marketVariance();
+      return marketPrice();
     }).then(() => {
-      return batchVolume;
+      return batchVolume();
     }).then(() => {
       resolve(true);
     }).catch((error) => {
@@ -48,6 +52,10 @@ export default function calculateMarketParams() {
 
 export function marketPrice() {
   console.log('hit marketPrice');
+  const distribution = gaussian(price, price_variance);
+  // Take a random sample using inverse transform sampling method.
+  var sample = distribution.ppf(Math.random());
+
 }
 
 export function marketVariance() {
@@ -65,13 +73,13 @@ SHOTGUN: TRADING BATCH
 */
 export function shotgun() {
   for(let i = 0; i < volume; i++) {
-    tradingEvent();
+    tradingEvent(i);
   }
   return true;
 }
 
 export function tradingEvent(i) {
-  console.log(`Trade ${i}`)
+  console.log(`Trade ${i}`);
 }
 
 /*

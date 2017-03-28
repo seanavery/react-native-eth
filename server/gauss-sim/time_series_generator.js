@@ -66,12 +66,11 @@ export function marketVariance() {
 }
 
 export function batchVolume() {
-  console.log('hit batchVolume');
   return new Promise((resolve, rejct) => {
     Promise.resolve(bellRandom(volume, volume_variance))
     .then((v) => {
-      console.log('new volume is', v);
-      volume = v;
+      console.log('new volume is', Math.floor(v));
+      volume = Math.floor(v);
       resolve(v);
     }).catch((error) => {
       reject(error);
@@ -92,7 +91,12 @@ export function shotgun() {
 }
 
 export function tradingEvent(i) {
-  console.log(`Trade ${i}`);
+  return new Promise((resolve, reject) => {
+    Promise.resolve(tradeDirection())
+    .then((d) => {
+
+    })
+  })
 }
 
 /*
@@ -112,39 +116,8 @@ export function flatRandom(mean) {
   return mean;
 }
 
+export function tradeDirection() {
+  return Math.round(Math.random());
+}
+
 simulationLoop();
-
-
-
-
-// instantiate process
-// Promise.delay(0)
-// .then(() => {
-//   runSimulation();
-// }).catch((error) => {
-//   console.log(error);
-// });
-//
-// function runSimulation() {
-//   return Promise.delay(3000)
-//   .then(() => {
-//     return marketPrice();
-//   }).then((price) => {
-//     console.log('price', price);
-//     console.log('date', new Date());
-//     return runSimulation();
-//   }).catch((error) => {
-//     return Promise.delay(3000)
-//     .then(() => { return runSimulation();})
-//   })
-// }
-//
-// const marketPrice = () => {
-//   return new Promise((resolve, reject) => {
-//     Promise.resolve(normalRandom(market_price, 1))
-//   })
-// }
-//
-// const normalRandom = () => {
-//
-// }

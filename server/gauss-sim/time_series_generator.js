@@ -39,8 +39,6 @@ export default function calculateMarketParams() {
   return new Promise((resolve, reject) => {
     Promise.resolve(marketPrice())
     .then(() => {
-      return marketPrice();
-    }).then(() => {
       return batchVolume();
     }).then(() => {
       resolve(true);
@@ -51,11 +49,16 @@ export default function calculateMarketParams() {
 }
 
 export function marketPrice() {
-  console.log('hit marketPrice');
-  const distribution = gaussian(price, price_variance);
-  // Take a random sample using inverse transform sampling method.
-  var sample = distribution.ppf(Math.random());
-
+  return new Promise((resolve, reject) => {
+    Promise.resolve(bellRandom(price, price_variance))
+    .then((p) => {
+      console.log('new market price is', p)
+      price = p;
+      resolve(p);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
 }
 
 export function marketVariance() {
@@ -87,11 +90,11 @@ export function tradingEvent(i) {
 MATH UTILIITES
 ///////////////////////////////////////////////////////////
 */
-export function bellRandom(mean) {
-  conosole.log('calculating normal random');
-  return mean;
-
-  return new Promise(resolve, rejct)
+export function bellRandom() {
+  const distribution = gaussian(price, price_variance);
+  // Take a random sample using inverse transform sampling method.
+  const sample = distribution.ppf(Math.random());
+  return sample;
 }
 
 export function flatRandom(mean) {

@@ -4,8 +4,8 @@ import gaussian from 'gaussian';
 // globals
 let volume = 5;
 let price = 1;
-let price_variance = .2;
-let volume_variance = 3;
+let price_variance = .1;
+let volume_variance = 1;
 
 /*
 ///////////////////////////////////////////////////////////
@@ -67,6 +67,16 @@ export function marketVariance() {
 
 export function batchVolume() {
   console.log('hit batchVolume');
+  return new Promise((resolve, rejct) => {
+    Promise.resolve(bellRandom(volume, volume_variance))
+    .then((v) => {
+      console.log('new volume is', v);
+      volume = v;
+      resolve(v);
+    }).catch((error) => {
+      reject(error);
+    })
+  })
 }
 
 /*
@@ -90,8 +100,8 @@ export function tradingEvent(i) {
 MATH UTILIITES
 ///////////////////////////////////////////////////////////
 */
-export function bellRandom() {
-  const distribution = gaussian(price, price_variance);
+export function bellRandom(mean, variance) {
+  const distribution = gaussian(mean, variance);
   // Take a random sample using inverse transform sampling method.
   const sample = distribution.ppf(Math.random());
   return sample;

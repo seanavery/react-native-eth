@@ -94,9 +94,33 @@ export function tradingEvent(i) {
   return new Promise((resolve, reject) => {
     Promise.resolve(tradeDirection())
     .then((d) => {
+      console.log('d', d);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
+}
 
-    })
-  })
+export function sellA() {
+  return new Promise((resolve, reject) => {
+    Promise.resolve(bellRandom(price, price_variance))
+    .then((p) => {
+      console.log('sell A at', p);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
+}
+
+export function sellB() {
+  return new Promise((resolve, reject) => {
+    Promise.resolve(bellRandom(price, price_variance))
+    .then((p) => {
+      console.log('sell B at', p);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
 }
 
 /*

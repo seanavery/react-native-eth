@@ -1,41 +1,31 @@
 import * as scale from 'd3-scale';
-import * as shape from 'd3-shape';
-import * as d3Array from 'd3-shape';
+import * as shape form 'd3-shape';
+import * as d3Array from 'd3-array';
 
 const d3 = {
   scale,
-  shape
-}
+  shape,
+};
 
-export function createLineGraph({
+export function createLineGraph ({
   data,
-  xAccessor,
-  yAccessor,
   width,
   height,
 }) {
-  const lastDatum = data[data.length - 1];
-  console.log('data', data);
-  console.log('lastDatum', lastDatum);
-  const scaleX = d3.scale.scaleTime()
-    .domain([new Date(data[0].time * 1000), new Date(lastDatum.time * 1000)])
-    .range([0, width])
+  // get last data item in array
+  const last_datum = data[data.length - 1];
 
-  const allYValues = data.reduce((all, datum) => {
-    all.push(yAccessor(datum));
-    return all;
-  }, []);
+  // create x-scale
+  const scale_x = createScaleX(
+    data[0].time,
+    last_datum.time,
+    width
+  );
 
-  const extenY = d3Array.extent(allYValues);
-  const scaleY = d3.scale.scaleLinear()
-    .domain([extenY[0], extenY[1]]).nice()
-    .range([height, 0]);
+  // get all y values
+  const extent_y = d3Array.extent(allYValues);
 
-  const lineShape = d3.shape.line()
-    .x(d=> scaleX(xAccessor(d)))
-    .y(d=> scaleY(yAccessor(d)));
-
-  return {
-    path: lineShape(data)
-  }
+  // create y-scale
+  const scale_y = createScaleY(extent_y[0], extent_y[1], height);
+  
 }

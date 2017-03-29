@@ -22,7 +22,6 @@ class GestureComponent extends Component {
         break;
       case 'SWIPE_UP':
         const { dispatch } = this.props;
-        console.log('dispatch', dispatch);
         dispatch({type: 'TOGGLE_DRAWER'});
         this.setState({gestureName: 'Up'});
         break;

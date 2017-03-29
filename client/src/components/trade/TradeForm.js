@@ -51,58 +51,49 @@ export default class TradeForm extends Component {
     return Math.round(val * multiplier) / multiplier
   }
 
-
   render() {
-    const data = [[
-    [0, 1],
-    [1, 3],
-    [3, 7],
-    [4, 9],
-]];
     return (
       <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'lightgrey'}}>
-        <View style={{width: '100%', height: '70%', flex:1 }}>
-          <Chart
-            data={data}
-            verticalGridStep={5}
-            type="line"
-            showDataPoint={true}
-          />
-        </View>
-        <View style={{width: '100%', height: '5%', flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-          <View style={{flex: 1, width: '50%', height: '100%'}}>
+        <View style={{width: '100%', height: '33%', flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+          <View style={{flex: 1}}>
             <Text style ={{
               textAlign: 'center',
               color: 'darkgrey',
-              fontSize: 28,
+              fontSize: 50,
               fontFamily: 'Helvetica'
-            }}>{this.state.ue_amount} UE</Text>
+            }}>
+              {this.state.ue_amount} UE
+            </Text>
           </View>
-          <View style={{flex: 1, width: '50%', height: '100%'}}>
+        </View>
+        <View style={{width: '100%', height: '33%', flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+          <View style={{flex: 1}}>
             <Text style ={{
               textAlign: 'center',
               color: 'darkgrey',
-              fontSize: 28,
+              fontSize: 50,
               fontFamily: 'Helvetica'
-            }}>{this.state.gbp_amount} GBP</Text>
+            }}>
+              {this.state.gbp_amount} GBP
+            </Text>
           </View>
         </View>
-        <View style={{width: '100%', height: '5%', flex: 1 }}>
-          <Slider
-            onValueChange={this.handleSliderChange}
-            onSlidingComplete={this.handleSliderComplete}
-          />
-        </View>
-        <View style={{backgroundColor: 'darkgrey', height:'10%', width: '100%'}}>
-          <Button
-            title='Submit'
-            onPress={this.handleOrder}
-            raised={true}
-            buttonSytle={{width:'100%', height:'100%'}}
-            backgroundColor='skyblue'
-          />
+        <View style={{width: '100%', height: '33%', }}>
+          <View style={{ paddingLeft: 10, paddingRight: 10, height: '50%'}}>
+            <Slider
+              onValueChange={this.handleSliderChange}
+              onSlidingComplete={this.handleSliderComplete}
+            />
+          </View>
+          <View style={{backgroundColor: 'darkgrey', height:'50%'}}>
+            <TouchableHighlight onPress={this.handleOrder} style={{flex: 1, flexDirection: 'row', alignItems: 'center', width: '100%', height: '100%'}}>
+              <View style={{flex: 1, alignItems: 'center'}}>
+
+              </View>
+            </TouchableHighlight>
+          </View>
         </View>
       </View>
-    )
+    );
   }
 }
